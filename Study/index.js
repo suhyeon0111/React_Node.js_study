@@ -54,7 +54,7 @@ app.post('/login', (req, res) => {
         if (err) return res.status(400).send(err);
          
         // 토큰을 쿠키에 저장한다. 
-          res.cookie("x_auth", user.token)
+          res.cookie("x_auth", user.token)                      //x_auth라는 이름으로 쿠키가 저장됨
           .status(200)
           .json({ loginSuccess: true, userId: user._id })
       })
