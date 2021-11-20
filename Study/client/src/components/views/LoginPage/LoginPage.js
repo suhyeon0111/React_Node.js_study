@@ -1,7 +1,12 @@
-import { Axios } from 'axios'
-import React, { useState } from 'react'
+import { Axios } from 'axios';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { loginUser } from '../../../_actions/user_action';
 
-function LoginPage(){
+
+function LoginPage(props){
+
+    const dispatch = useDispatch();
 
     // email password를 위한 state를 만들어야함
     const [Email, setEmail] = useState("")
@@ -26,7 +31,14 @@ function LoginPage(){
             password: Password
         }
 
-        dispatchEvent(loginUser())
+        dispatch(loginUser(body))
+        .then(response => {
+            if (response.payload.loginSuccess) {
+                props.history.push('/')               
+            } else {
+                alert("Error")
+            }
+        })
 
 
     }
