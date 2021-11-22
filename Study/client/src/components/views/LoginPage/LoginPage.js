@@ -1,8 +1,8 @@
-import { Axios } from 'axios';
+// import axios from 'axios';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { loginUser } from '../../../_actions/user_action';
-
+// import { useNavigate } from 'react-router-dom';
 
 function LoginPage(props){
 
@@ -30,11 +30,12 @@ function LoginPage(props){
             email: Email,
             password: Password
         }
+        // let useNavigate = useNavigate();
 
         dispatch(loginUser(body))
         .then(response => {
             if (response.payload.loginSuccess) {
-                props.history.push('/')               
+                props.history.push('/')
             } else {
                 alert("Error")
             }

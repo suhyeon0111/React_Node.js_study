@@ -10,7 +10,7 @@ export function loginUser(dataToSubmit) {
     .then(response => response.data)
 
     return {
-        type: "LOGIN_USER",
+        type: LOGIN_USER,
         payload: request
     }
 }

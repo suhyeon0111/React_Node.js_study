@@ -7,7 +7,7 @@ export default function(state = {}, action) {
         case LOGIN_USER:
             return { ...state, loginSuccess: action.payload }
             break;
-
+            
         default:
             return state;
 
