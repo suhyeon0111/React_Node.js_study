@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { loginUser } from '../../../_actions/user_action';
 // import { useNavigate } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
+
 
 function LoginPage(props){
 
@@ -40,8 +42,6 @@ function LoginPage(props){
                 alert("Error")
             }
         })
-
-
     }
 
     return (
@@ -56,8 +56,9 @@ function LoginPage(props){
                 <input type="email" value={Email} onChange={onEmailHandler} />
                 <label>Password</label> 
                 <input type="password" value={Password} onChange={onPasswordHandler} />
+
                 <br />
-                <button>
+                <button type="submit">
                     Login
                 </button>
             </form>
@@ -65,4 +66,4 @@ function LoginPage(props){
     )
 }
 
-export default LoginPage
+export default withRouter(LoginPage)
